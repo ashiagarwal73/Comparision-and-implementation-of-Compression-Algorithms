@@ -56,9 +56,9 @@ void file_read()
       FILE *fp;
       int length=0;
       int i;
-      fp = fopen( "test.c", "r" ) ;
+      fp = fopen( "input.txt", "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file test.c\n" ) ;
+        printf( "Could not open file input.txt\n" ) ;
 
       }
       int c;
@@ -262,9 +262,9 @@ FILE *fp;
            // Program exits if the file pointer returns NULL.
            return 0;
        }
-      fp = fopen( "test.c", "r" ) ;
+      fp = fopen( "input.txt", "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file test.c\n" ) ;
+        printf( "Could not open file input.txt\n" ) ;
         return 1;
       }
       while((c = fgetc(fp))!=EOF){

@@ -1,7 +1,6 @@
 #include<string.h>
 #include<stdio.h>
 #include<time.h>
-
 int codeword[128]={0};
 void sort(int *frequency ,int *temp)
 {
@@ -60,9 +59,9 @@ double executeShanonfano(){
       int frequency[128]={0};
       int i;
       int temp[128];
-      fp = fopen( "test.c", "r" ) ;
+      fp = fopen( "input.txt", "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file test.c\n" ) ;
+        printf( "Could not open file input.txt\n" ) ;
         return 1;
       }
       int c;
@@ -95,9 +94,9 @@ double executeShanonfano(){
            // Program exits if the file pointer returns NULL.
            return 0;
        }
-      fp = fopen( "test.c", "r" ) ;
+      fp = fopen( "input.txt", "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file test.c\n" ) ;
+        printf( "Could not open file input.txt\n" ) ;
         return 1;
       }
       while((c = fgetc(fp))!=EOF){
@@ -108,12 +107,10 @@ double executeShanonfano(){
             fprintf(fptr,"%d",codeword[i]);
           }
         }
-
       }
       fclose(fp);
       fclose(fptr);
       end=clock();
-total_time=(double)(end-start)/CLOCKS_PER_SEC;
-return total_time;
-
+      total_time=(double)(end-start)/CLOCKS_PER_SEC;
+      return total_time;
 }
