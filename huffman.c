@@ -1,20 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include<time.h>
 #define HEIGHT 100
 int frequency[128]={0};
 int temp[128];
 int* ard[107];
 int len;
-
-
-
+typedef struct NODE Node;
 struct NODE {
     char data;
     int freq;
-    struct Node *left, *right;
+    Node *left, *right;
 };
-typedef struct NODE Node;
 typedef struct  {
     int size;
     int capacity;
@@ -59,14 +56,11 @@ void file_read()
       FILE *fp;
       int length=0;
       int i;
-
-      printf( "Opening the file test.c in read mode\n" ) ;
       fp = fopen( "test.c", "r" ) ;
       if ( fp == NULL ){
         printf( "Could not open file test.c\n" ) ;
-        return 1;
+
       }
-      printf( "Reading the file test.c\n" ) ;
       int c;
       while((c = fgetc(fp))!=EOF){
         frequency[c]++;
@@ -77,12 +71,6 @@ void file_read()
           temp[i]=i;
       }
       sort_huffman(frequency,temp);
-      for(i=0;i<128;i++)
-      {
-        if(frequency[i]>0)
-        printf("%c is %d times\n",temp[i],frequency[i]);
-      }
-      printf("\nClosing the file test.c\n") ;
       fclose(fp);
 }
 
@@ -172,14 +160,9 @@ void buildMinHeap(MinHeap* minHeap)
 void printArr(int arr[], int n)
 {
     int i;
-    for (i = 0; i < n; ++i)
-        printf("%d", arr[i]);
     ard[len]=(int*)malloc(sizeof(int)*n);
     for(i=0;i<n;i++)
     ard[len][i]=arr[i];
-    printf("\n");
-    for(i=0;i<n;i++)
-        printf("%d",ard[len][i]);
     len++;
 }
 int isLeaf(Node* root)
@@ -238,13 +221,6 @@ int j=0;
         printCodes(root->right, arr, top + 1);
     }
     if (isLeaf(root)) {
-
-        printf("%c: ", root->data);
-
-
- // strcpy(str[i],arr);
- // printf("%d\n",str[i]);
-
         printArr(arr, top);
     }
 }
@@ -257,15 +233,18 @@ void HuffmanCodes(char data[], int freq[], int size)
 
     printCodes(root, arr, top);
 }
-int executeHuffman()
+double executeHuffman()
 {
+  clock_t start,end;
+double total_time;
+start=clock();
 len=0;
 char c;
 int i=0 ,j=0,k=0;
 char arr[128];
 int freq[128];
 file_read();
- for(i=0;i<128;i++)
+for(i=0;i<128;i++)
 {
 if(frequency[i]>0)
 {
@@ -278,7 +257,7 @@ int size =k;
 HuffmanCodes(arr, freq, size);
 FILE *fp;
  FILE *fptr;
-       if ((fptr = fopen("output.txt","w")) == NULL){
+       if ((fptr = fopen("outputHuffman.txt","w")) == NULL){
            printf("Error! opening file");
            // Program exits if the file pointer returns NULL.
            return 0;
@@ -288,24 +267,22 @@ FILE *fp;
         printf( "Could not open file test.c\n" ) ;
         return 1;
       }
-      printf( "Reading the file test.c\n" ) ;
       while((c = fgetc(fp))!=EOF){
-                    for ( i = 0; i <size; ++i)
+      for ( i = 0; i <size; ++i)
         {
           if(arr[i]==c)
           {
 
           for(j=0;j<sizeof(ard[i])/sizeof(int);j++)
           {
-
           fprintf(fptr,"%d",ard[i][j]);
-            printf("%d",ard[i][j]);
           }
-          printf("\n");
         }
       }
       }
 fclose(fp);
 fclose(fptr);
-return 0;
+end=clock();
+total_time=(double)(end-start)/CLOCKS_PER_SEC;
+return total_time;
 }

@@ -1,5 +1,6 @@
 #include<string.h>
 #include<stdio.h>
+
 float probability[6]={0.30,0.25,0.15,0.12,0.10,0.08};
 char character[6]={'a','c','s','b','m','n'};
 int shannonfano(int initial,int final,int code)
