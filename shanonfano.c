@@ -50,7 +50,7 @@ void shannonfano(int initial,int final,int code,float *probability,int *characte
   shannonfano(first+1,final,code+1,probability,character);
 
 }
-double executeShanonfano(){
+double executeShanonfano(char * filename){
   clock_t start,end;
   double total_time;
   start=clock();
@@ -59,9 +59,9 @@ double executeShanonfano(){
       int frequency[128]={0};
       int i;
       int temp[128];
-      fp = fopen( "input.txt", "r" ) ;
+      fp = fopen( filename, "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file input.txt\n" ) ;
+        printf( "Could not open file %s\n",filename ) ;
         return 1;
       }
       int c;

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <math.h>
+#include<time.h>
 uint32_t lz77_compress (uint8_t *uncompressed_text,uint32_t uncompressed_size,uint8_t *compressed_text, uint8_t pointer_length_width)
 {
     uint16_t pointer_pos, temp_pointer_pos, output_pointer, pointer_length, temp_pointer_length;
@@ -13,7 +14,7 @@ uint32_t lz77_compress (uint8_t *uncompressed_text,uint32_t uncompressed_size,ui
     *((uint32_t *) compressed_text) = uncompressed_size;
     *(compressed_text + 4) = pointer_length_width;
     compressed_pointer = output_size = 5;
-   
+
     for(coding_pos = 0; coding_pos < uncompressed_size; ++coding_pos)
     {
         pointer_pos = 0;
@@ -149,17 +150,30 @@ uint32_t file_lz77_decompress (char *filename_in, char *filename_out)
 
     return uncompressed_size;
 }
-
-int main (int argc, char const *argv[])
+double total_time=0.0;
+double timecomplexity()
 {
+  return total_time;
+
+}
+double executeLZ (char * filename)
+{clock_t start,end;
+//double total_time;
+start=clock();
     FILE *in;
-    in = fopen("ashish", "r");
+    in = fopen(filename, "r");
     if(in == NULL)
         return 0;
-    printf("Original size: %ld\n", fsize(in));
+    //printf("Original size: %ld\n", fsize(in));
     fclose(in);
-    for(uint8_t i = 1; i < 2; ++i)
-        printf("Compressed (%i): %u, decompressed: (%u)\n", i, file_lz77_compress("ashish", "ashish-0", 10000000, i), file_lz77_decompress("./ashish-0", "ashish2"));
-    return 0;
-}
+    uint8_t arr[4];
+    for(uint8_t i = 1; i <4 ; ++i)
+    {
+      arr[i]=file_lz77_compress("input.txt", "outputLZ.txt", 10000000, i);
+      //printf("Compressed (%i): %u, decompressed: (%u)\n", i, , file_lz77_decompress("outputLZ.txt", "ashish2"));
+    }
+    end=clock();
+    total_time=(double)(end-start)/CLOCKS_PER_SEC;
+    return arr[3]*8;
 
+}

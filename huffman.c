@@ -51,14 +51,14 @@ void sort_huffman(int *frequency ,int *temp)
     }
   }
 }
-void file_read()
+void file_read(char * filename)
 {
       FILE *fp;
       int length=0;
       int i;
-      fp = fopen( "input.txt", "r" ) ;
+      fp = fopen( filename, "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file input.txt\n" ) ;
+        printf( "Could not open file %s\n",filename ) ;
 
       }
       int c;
@@ -233,7 +233,7 @@ void HuffmanCodes(char data[], int freq[], int size)
 
     printCodes(root, arr, top);
 }
-double executeHuffman()
+double executeHuffman(char * filename)
 {
   clock_t start,end;
 double total_time;
@@ -243,7 +243,7 @@ char c;
 int i=0 ,j=0,k=0;
 char arr[128];
 int freq[128];
-file_read();
+file_read(filename);
 for(i=0;i<128;i++)
 {
 if(frequency[i]>0)
@@ -262,9 +262,9 @@ FILE *fp;
            // Program exits if the file pointer returns NULL.
            return 0;
        }
-      fp = fopen( "input.txt", "r" ) ;
+      fp = fopen( filename, "r" ) ;
       if ( fp == NULL ){
-        printf( "Could not open file input.txt\n" ) ;
+        printf( "Could not open file %s\n" ,filename) ;
         return 1;
       }
       while((c = fgetc(fp))!=EOF){
