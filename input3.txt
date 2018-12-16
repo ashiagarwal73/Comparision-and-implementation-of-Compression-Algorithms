@@ -1,0 +1,11 @@
+About 825, al-Khwarizmi wrote an Arabic language treatise on the Hindu–Arabic numeral system, which was translated into Latin during the 12th century under the title Algoritmi de numero Indorum. This title means "Algoritmi on the numbers of the Indians", where "Algoritmi" was the translator's Latinization of Al-Khwarizmi's name.[15] Al-Khwarizmi was the most widely read mathematician in Europe in the late Middle Ages, primarily through another of his books, the Algebra.[16] In late medieval Latin, algorismus, English 'algorism', the corruption of his name, simply meant the "decimal number system". In the 15th century, under the influence of the Greek word ἀριθμός 'number' (cf. 'arithmetic'), the Latin word was altered to algorithmus, and the corresponding English term 'algorithm' is first attested in the 17th century; the modern sense was introduced in the 19th century.[17]
+
+In English, it was first used in about 1230 and then by Chaucer in 1391. English adopted the French term, but it wasn't until the late 19th century that "algorithm" took on the meaning that it has in modern English.
+
+Another early use of the word is from 1240, in a manual titled Carmen de Algorismo composed by Alexandre de Villedieu. It begins thus:
+
+    Haec algorismus ars praesens dicitur, in qua / Talibus Indorum fruimur bis quinque figuris. 
+
+which translates as:
+
+    Algorism is the art by which at present we use those Indian figures, which number two times five. 

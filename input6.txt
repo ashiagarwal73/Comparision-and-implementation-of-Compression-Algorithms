@@ -1,0 +1,18 @@
+Design
+See also: Algorithm § By design paradigm
+Algorithm design refers to a method or mathematical process for problem-solving and engineering algorithms. The design of algorithms is part of many solution theories of operation research, such as dynamic programming and divide-and-conquer. Techniques for designing and implementing algorithm designs are also called algorithm design patterns,[29] such as the template method pattern and decorator pattern.
+One of the most important aspects of algorithm design is creating an algorithm that has an efficient run-time, also known as its Big O.
+Typical steps in the development of algorithms:
+    Problem definition
+    Development of a model
+    Specification of the algorithm
+    Designing an algorithm
+    Checking the correctness of the algorithm
+    Analysis of algorithm
+    Implementation of algorithm
+    Program testing
+    Documentation preparation
+Implementation
+Logical NAND algorithm implemented electronically in 7400 chip
+Most algorithms are intended to be implemented as computer programs. However, algorithms are also implemented by other means, such as in a biological neural network (for example, the human brain implementing arithmetic or an insect looking for food), in an electrical circuit, or in a mechanical device.
+Computer algorithms

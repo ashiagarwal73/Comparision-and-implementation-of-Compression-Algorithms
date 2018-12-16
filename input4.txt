@@ -1,0 +1,5 @@
+For a detailed presentation of the various points of view on the definition of "algorithm", see Algorithm characterizations.
+An informal definition could be "a set of rules that precisely defines a sequence of operations."[18] which would include all computer programs, including programs that do not perform numeric calculations. Generally, a program is only an algorithm if it stops eventually.[19]
+A prototypical example of an algorithm is the Euclidean algorithm to determine the maximum common divisor of two integers; an example (there are others) is described by the flowchart above and as an example in a later section.
+Boolos, Jeffrey & 1974, 1999 offer an informal meaning of the word in the following quotation:
+No human being can write fast enough, or long enough, or small enough† ( †"smaller and smaller without limit ...yns on symbols.[20]

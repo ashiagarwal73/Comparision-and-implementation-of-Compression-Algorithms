@@ -22,14 +22,12 @@ Node* newNode(char data, int freq)
 {
     Node* temp= (Node*)malloc
 (sizeof(Node));
-
     temp->left = temp->right = NULL;
     temp->data = data;
     temp->freq = freq;
 
     return temp;
 }
-
 void sort_huffman(int *frequency ,int *temp)
 {
   int a,i,j;
@@ -73,7 +71,6 @@ void file_read(char * filename)
       sort_huffman(frequency,temp);
       fclose(fp);
 }
-
 MinHeap* createMinHeap(int capacity)
 {
 MinHeap* minHeap = (MinHeap*)malloc(sizeof(MinHeap));
@@ -84,7 +81,6 @@ MinHeap* minHeap = (MinHeap*)malloc(sizeof(MinHeap));
 capacity * sizeof(Node*));
     return minHeap;
 }
-
 void swapNode(Node** a,Node** b)
 {
 Node* t = *a;
@@ -93,9 +89,7 @@ Node* t = *a;
 }
 
 void minHeapify(MinHeap* minHeap, int idx)
-
 {
-
     int smallest = idx;
     int left = 2 * idx + 1;
     int right = 2 * idx + 2;
@@ -133,9 +127,7 @@ Node *temp = minHeap->array[0];
 }
 
 void insertMinHeap(MinHeap* minHeap,Node* minHeapNode)
-
 {
-
     ++minHeap->size;
     int i = minHeap->size - 1;
 
@@ -166,14 +158,10 @@ void printArr(int arr[], int n)
     len++;
 }
 int isLeaf(Node* root)
-
 {
-
     return !(root->left) && !(root->right);
 }
-
 MinHeap* createAndBuildMinHeap(char data[], int freq[], int size)
-
 {
    int i;
    MinHeap* minHeap = createMinHeap(size);
@@ -183,11 +171,9 @@ MinHeap* createAndBuildMinHeap(char data[], int freq[], int size)
 
     minHeap->size = size;
     buildMinHeap(minHeap);
-
     return minHeap;
 }
 Node* buildHuffmanTree(char data[], int freq[], int size)
-
 {
     Node *left, *right, *top;
     MinHeap* minHeap = createAndBuildMinHeap(data, freq, size);
@@ -201,11 +187,9 @@ Node* buildHuffmanTree(char data[], int freq[], int size)
 
         insertMinHeap(minHeap, top);
     }
-
     return extractMin(minHeap);
 }
 void printCodes(Node* root, int arr[], int top)
-
 {
 int i=0;
 int j=0;
@@ -224,7 +208,6 @@ int j=0;
         printArr(arr, top);
     }
 }
-
 void HuffmanCodes(char data[], int freq[], int size)
 {
     Node* root

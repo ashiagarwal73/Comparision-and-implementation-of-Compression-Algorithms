@@ -1,0 +1,44 @@
+Testing the Euclid algorithms
+
+Does an algorithm do what its author wants it to do? A few test cases usually suffice to confirm core functionality. One source[55] uses 3009 and 884. Knuth suggested 40902, 24140. Another interesting case is the two relatively prime numbers 14157 and 5950.
+
+But exceptional cases must be identified and tested. Will "Inelegant" perform properly when R > S, S > R, R = S? Ditto for "Elegant": B > A, A > B, A = B? (Yes to all). What happens when one number is zero, both numbers are zero? ("Inelegant" computes forever in all cases; "Elegant" computes forever when A = 0.) What happens if negative numbers are entered? Fractional numbers? If the input numbers, i.e. the domain of the function computed by the algorithm/program, is to include only positive integers including zero, then the failures at zero indicate that the algorithm (and the program that instantiates it) is a partial function rather than a total function. A notable failure due to exceptions is the Ariane 5 Flight 501 rocket failure (June 4, 1996).
+
+Proof of program correctness by use of mathematical induction: Knuth demonstrates the application of mathematical induction to an "extended" version of Euclid's algorithm, and he proposes "a general method applicable to proving the validity of any algorithm".[56] Tausworthe proposes that a measure of the complexity of a program be the length of its correctness proof.[57]
+Measuring and improving the Euclid algorithms
+
+Elegance (compactness) versus goodness (speed): With only six core instructions, "Elegant" is the clear winner, compared to "Inelegant" at thirteen instructions. However, "Inelegant" is faster (it arrives at HALT in fewer steps). Algorithm analysis[58] indicates why this is the case: "Elegant" does two conditional tests in every subtraction loop, whereas "Inelegant" only does one. As the algorithm (usually) requires many loop-throughs, on average much time is wasted doing a "B = 0?" test that is needed only after the remainder is computed.
+
+Can the algorithms be improved?: Once the programmer judges a program "fit" and "effective"—that is, it computes the function intended by its author—then the question becomes, can it be improved?
+
+The compactness of "Inelegant" can be improved by the elimination of five steps. But Chaitin proved that compacting an algorithm cannot be automated by a generalized algorithm;[59] rather, it can only be done heuristically; i.e., by exhaustive search (examples to be found at Busy beaver), trial and error, cleverness, insight, application of inductive reasoning, etc. Observe that steps 4, 5 and 6 are repeated in steps 11, 12 and 13. Comparison with "Elegant" provides a hint that these steps, together with steps 2 and 3, can be eliminated. This reduces the number of core instructions from thirteen to eight, which makes it "more elegant" than "Elegant", at nine steps.
+
+The speed of "Elegant" can be improved by moving the "B=0?" test outside of the two subtraction loops. This change calls for the addition of three instructions (B = 0?, A = 0?, GOTO). Now "Elegant" computes the example-numbers faster; whether this is always the case for any given A, B, and R, S would require a detailed analysis.
+Algorithmic analysis
+Main article: Analysis of algorithms
+
+It is frequently important to know how much of a particular resource (such as time or storage) is theoretically required for a given algorithm. Methods have been developed for the analysis of algorithms to obtain such quantitative answers (estimates); for example, the sorting algorithm above has a time requirement of O(n), using the big O notation with n as the length of the list. At all times the algorithm only needs to remember two values: the largest number found so far, and its current position in the input list. Therefore, it is said to have a space requirement of O(1), if the space required to store the input numbers is not counted, or O(n) if it is counted.
+
+Different algorithms may complete the same task with a different set of instructions in less or more time, space, or 'effort' than others. For example, a binary search algorithm (with cost O(log n) ) outperforms a sequential search (cost O(n) ) when used for table lookups on sorted lists or arrays.
+Testing the Euclid algorithms
+
+Does an algorithm do what its author wants it to do? A few test cases usually suffice to confirm core functionality. One source[55] uses 3009 and 884. Knuth suggested 40902, 24140. Another interesting case is the two relatively prime numbers 14157 and 5950.
+
+But exceptional cases must be identified and tested. Will "Inelegant" perform properly when R > S, S > R, R = S? Ditto for "Elegant": B > A, A > B, A = B? (Yes to all). What happens when one number is zero, both numbers are zero? ("Inelegant" computes forever in all cases; "Elegant" computes forever when A = 0.) What happens if negative numbers are entered? Fractional numbers? If the input numbers, i.e. the domain of the function computed by the algorithm/program, is to include only positive integers including zero, then the failures at zero indicate that the algorithm (and the program that instantiates it) is a partial function rather than a total function. A notable failure due to exceptions is the Ariane 5 Flight 501 rocket failure (June 4, 1996).
+
+Proof of program correctness by use of mathematical induction: Knuth demonstrates the application of mathematical induction to an "extended" version of Euclid's algorithm, and he proposes "a general method applicable to proving the validity of any algorithm".[56] Tausworthe proposes that a measure of the complexity of a program be the length of its correctness proof.[57]
+Measuring and improving the Euclid algorithms
+
+Elegance (compactness) versus goodness (speed): With only six core instructions, "Elegant" is the clear winner, compared to "Inelegant" at thirteen instructions. However, "Inelegant" is faster (it arrives at HALT in fewer steps). Algorithm analysis[58] indicates why this is the case: "Elegant" does two conditional tests in every subtraction loop, whereas "Inelegant" only does one. As the algorithm (usually) requires many loop-throughs, on average much time is wasted doing a "B = 0?" test that is needed only after the remainder is computed.
+
+Can the algorithms be improved?: Once the programmer judges a program "fit" and "effective"—that is, it computes the function intended by its author—then the question becomes, can it be improved?
+
+The compactness of "Inelegant" can be improved by the elimination of five steps. But Chaitin proved that compacting an algorithm cannot be automated by a generalized algorithm;[59] rather, it can only be done heuristically; i.e., by exhaustive search (examples to be found at Busy beaver), trial and error, cleverness, insight, application of inductive reasoning, etc. Observe that steps 4, 5 and 6 are repeated in steps 11, 12 and 13. Comparison with "Elegant" provides a hint that these steps, together with steps 2 and 3, can be eliminated. This reduces the number of core instructions from thirteen to eight, which makes it "more elegant" than "Elegant", at nine steps.
+
+The speed of "Elegant" can be improved by moving the "B=0?" test outside of the two subtraction loops. This change calls for the addition of three instructions (B = 0?, A = 0?, GOTO). Now "Elegant" computes the example-numbers faster; whether this is always the case for any given A, B, and R, S would require a detailed analysis.
+Algorithmic analysis
+Main article: Analysis of algorithms
+
+It is frequently important to know how much of a particular resource (such as time or storage) is theoretically required for a given algorithm. Methods have been developed for the analysis of algorithms to obtain such quantitative answers (estimates); for example, the sorting algorithm above has a time requirement of O(n), using the big O notation with n as the length of the list. At all times the algorithm only needs to remember two values: the largest number found so far, and its current position in the input list. Therefore, it is said to have a space requirement of O(1), if the space required to store the input numbers is not counted, or O(n) if it is counted.
+
+Different algorithms may complete the same task with a different set of instructions in less or more time, space, or 'effort' than others. For example, a binary search algorithm (with cost O(log n) ) outperforms a sequential search (cost O(n) ) when used for table lookups on sorted lists or arrays.

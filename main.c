@@ -5,7 +5,7 @@ int main()
 {
       char c;
       printf("Enter Input File Name with extension\n");
-      char filename[20];
+      char filename[90];
       scanf("%s",filename );
       double compressionRatioHuffman=0.0,compressionRatioShanonfano=0.0,compressionRatioLz=0.0;
       double compressionFactorHuffman=0.0,compressionFactorShanonfano=0.0,compressionFactorLz=0.0;
@@ -16,7 +16,7 @@ int main()
       double timeTakenHuffman =executeHuffman(filename);
       sizeOfLzEcodedFile=executeLZ(filename);
       double timeTakenLz=timecomplexity();
-      FILE *inputFile = fopen( "input.txt", "r" ) ;
+      FILE *inputFile = fopen(filename, "r" ) ;
       if ( inputFile== NULL ){
         printf( "Could not open file input.txt\n" ) ;
         return 1;

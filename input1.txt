@@ -1,0 +1,1 @@
+As an effective method, an algorithm can be expressed within a finite amount of space and time[1] and in a well-defined formal language[2] for calculating a function.[3] Starting from an initial state and initial input (perhaps empty),[4] the 

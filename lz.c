@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <math.h>
-#include<time.h>
 uint32_t lz77_compress (uint8_t *uncompressed_text,uint32_t uncompressed_size,uint8_t *compressed_text, uint8_t pointer_length_width)
 {
     uint16_t pointer_pos, temp_pointer_pos, output_pointer, pointer_length, temp_pointer_length;
@@ -50,8 +49,7 @@ uint32_t lz77_compress (uint8_t *uncompressed_text,uint32_t uncompressed_size,ui
         *(compressed_text + compressed_pointer++) = *(uncompressed_text + output_lookahead_ref);
         output_size += 3;
     }
-
-    return output_size;
+return output_size;
 }
 
 uint32_t lz77_decompress (uint8_t *compressed_text, uint8_t *uncompressed_text)
@@ -77,8 +75,7 @@ uint32_t lz77_decompress (uint8_t *compressed_text, uint8_t *uncompressed_text)
                 uncompressed_text[coding_pos++] = uncompressed_text[pointer_offset++];
         *(uncompressed_text + coding_pos) = *(compressed_text + compressed_pointer++);
     }
-
-    return coding_pos;
+return coding_pos;
 }
 
 long fsize (FILE *in)
@@ -116,10 +113,8 @@ uint32_t file_lz77_compress (char *filename_in, char *filename_out, size_t mallo
     if((compressed_size != fwrite(compressed_text, 1, compressed_size, out)))
         return 0;
     fclose(out);
-
     return compressed_size;
 }
-
 uint32_t file_lz77_decompress (char *filename_in, char *filename_out)
 {
     FILE *in, *out;
@@ -147,7 +142,6 @@ uint32_t file_lz77_decompress (char *filename_in, char *filename_out)
     if(fwrite(uncompressed_text, 1, uncompressed_size, out) != uncompressed_size)
         return 0;
     fclose(out);
-
     return uncompressed_size;
 }
 double total_time=0.0;
@@ -164,16 +158,13 @@ start=clock();
     in = fopen(filename, "r");
     if(in == NULL)
         return 0;
-    //printf("Original size: %ld\n", fsize(in));
     fclose(in);
     uint8_t arr[4];
     for(uint8_t i = 1; i <4 ; ++i)
     {
-      arr[i]=file_lz77_compress("input.txt", "outputLZ.txt", 10000000, i);
-      //printf("Compressed (%i): %u, decompressed: (%u)\n", i, , file_lz77_decompress("outputLZ.txt", "ashish2"));
+      arr[i]=file_lz77_compress(filename, "outputLZ.txt", 10000000, i);
     }
     end=clock();
     total_time=(double)(end-start)/CLOCKS_PER_SEC;
     return arr[3]*8;
-
 }

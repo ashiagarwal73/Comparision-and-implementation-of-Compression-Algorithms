@@ -45,10 +45,8 @@ void shannonfano(int initial,int final,int code,float *probability,int *characte
     }
   }
   code=code*10;
-
   shannonfano(initial,first,code+0,probability,character);
   shannonfano(first+1,final,code+1,probability,character);
-
 }
 double executeShanonfano(char * filename){
   clock_t start,end;
@@ -94,7 +92,7 @@ double executeShanonfano(char * filename){
            // Program exits if the file pointer returns NULL.
            return 0;
        }
-      fp = fopen( "input.txt", "r" ) ;
+      fp = fopen( filename, "r" ) ;
       if ( fp == NULL ){
         printf( "Could not open file input.txt\n" ) ;
         return 1;
