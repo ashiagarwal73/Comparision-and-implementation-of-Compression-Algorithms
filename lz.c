@@ -115,7 +115,7 @@ uint32_t file_lz77_compress (char *filename_in, char *filename_out, size_t mallo
     fclose(out);
     return compressed_size;
 }
-uint32_t file_lz77_decompress (char *filename_in, char *filename_out)
+/*uint32_t file_lz77_decompress (char *filename_in, char *filename_out)
 {
     FILE *in, *out;
     uint32_t compressed_size, uncompressed_size;
@@ -143,7 +143,7 @@ uint32_t file_lz77_decompress (char *filename_in, char *filename_out)
         return 0;
     fclose(out);
     return uncompressed_size;
-}
+}*/
 double total_time=0.0;
 double timecomplexity()
 {
